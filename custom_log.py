@@ -83,9 +83,9 @@ def log(logger):
 
             # loggerで使用するためにfuncに関する情報をdict化
             extra = {
-                "exc_filename": inspect.getfile(func),
+                "exc_filename": os.path.basename(inspect.getfile(func)),
                 "exc_funcName": func_name,
-                "exc_lineno": inspect.currentframe().f_back.f_lineno,
+                "exc_lineno": func.__code__.co_firstlineno,
                 "exc_args": exc_args,
             }
             # 開始ログ
