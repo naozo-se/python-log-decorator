@@ -1,0 +1,16 @@
+[2025-06-22 14:15:06,626] [7532] INFO temp_target_script.py - __main__::0 -> Attempting to run temp_target_script.py with injected logger and log decorator
+[2025-06-22 14:15:06,639] [7532] DEBUG  - ::0 -> Target script started
+[2025-06-22 14:15:06,639] [7532] INFO temp_target_script.py - my_target_function:(5,), {'y': 2}:5 -> [START] my_target_function
+[2025-06-22 14:15:06,639] [7532] INFO  - ::0 -> Inside my_target_function with 5, 2
+[2025-06-22 14:15:06,640] [7532] INFO temp_target_script.py - my_target_function:(-1,):5 -> [START] my_target_function
+[2025-06-22 14:15:06,640] [7532] INFO  - ::0 -> Inside my_target_function with -1, 1
+[2025-06-22 14:15:06,640] [7532] ERROR temp_target_script.py - my_target_function:(-1,):5 -> [EXCEPTION] my_target_function x cannot be negative
+Traceback (most recent call last):
+  File "/app/custom_log.py", line 117, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "temp_target_script.py", line 9, in my_target_function
+    raise ValueError("x cannot be negative")
+ValueError: x cannot be negative
+[2025-06-22 14:15:06,642] [7532] INFO  - ::0 -> Target script finished
+[2025-06-22 14:15:06,642] [7532] INFO temp_target_script.py - __main__::0 -> Finished execution of temp_target_script.py
